@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Kruh mince -->
+    <path
+        android:pathData="M60,10 A50,50 0 1,1 60,110 A50,50 0 1,1 60,10"
+        android:fillColor="#FFD700"
+        android:strokeColor="#B8860B"
+        android:strokeWidth="2"/>
+
+    <!-- Text P pro Pannu -->
+    <path
+        android:pathData="M45,35 L45,85 M45,35 L65,35 A10,10 0 0,1 65,55 L45,55"
+        android:strokeColor="#B8860B"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+
+</vector>
+

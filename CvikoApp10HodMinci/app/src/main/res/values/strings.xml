@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CvikoApp10HodMinci</string>
+    <string name="result_correct">Padlo: %1$s\nSprávně! Počet správných tipů: %2$d z %3$d</string>
+    <string name="result_wrong">Padlo: %1$s\nVedle! Počet správných tipů: %2$d z %3$d</string>
+</resources>

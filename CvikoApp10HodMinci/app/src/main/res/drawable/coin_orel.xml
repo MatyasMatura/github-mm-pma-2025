@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Kruh mince -->
+    <path
+        android:pathData="M60,10 A50,50 0 1,1 60,110 A50,50 0 1,1 60,10"
+        android:fillColor="#C0C0C0"
+        android:strokeColor="#808080"
+        android:strokeWidth="2"/>
+
+    <!-- Text O pro Orla -->
+    <path
+        android:pathData="M60,35 A12.5,12.5 0 1,1 60,85 A12.5,12.5 0 1,1 60,35"
+        android:strokeColor="#808080"
+        android:strokeWidth="3"
+        android:fillColor="@android:color/transparent"/>
+
+</vector>
+
