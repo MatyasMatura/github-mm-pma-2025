@@ -27,4 +27,25 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/btnRotateLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="↺ Rotate Left"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/btnRotateRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rotate Right ↻"/>
+
+    </LinearLayout>
+
 </LinearLayout>
