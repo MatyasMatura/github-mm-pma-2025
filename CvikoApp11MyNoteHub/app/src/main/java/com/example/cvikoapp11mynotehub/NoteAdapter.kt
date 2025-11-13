@@ -32,6 +32,15 @@ class NoteAdapter(
 
         holder.binding.tvNoteTitle.text = currentNote.title
         holder.binding.tvNoteContent.text = currentNote.content
+
+        // Add click listeners to edit and delete buttons
+        holder.binding.ivEdit.setOnClickListener {
+            onEditClick(currentNote)
+        }
+
+        holder.binding.ivDelete.setOnClickListener {
+            onDeleteClick(currentNote)
+        }
     }
 
     // Vrátí počet poznámek → RecyclerView ví, kolik řádků má vykreslit
