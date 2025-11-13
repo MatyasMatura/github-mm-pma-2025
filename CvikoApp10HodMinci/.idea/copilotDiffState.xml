@@ -7,7 +7,7 @@
           <value>
             <PendingDiffInfo>
               <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-              <option name="originalContent" value="&lt;resources&gt;&#10;    &lt;string name=&quot;app_name&quot;&gt;CvikoApp10HodMinci&lt;/string&gt;&#10;&lt;/resources&gt;" />
+              <option name="originalContent" value="&lt;resources&gt;&#10;    &lt;string name=&quot;app_name&quot;&gt;CvikoApp10HodMinci&lt;/string&gt;&#10;    &lt;string name=&quot;result_correct&quot;&gt;Padlo: %1$s\nSprávně! Počet správných tipů: %2$d z %3$d&lt;/string&gt;&#10;    &lt;string name=&quot;result_wrong&quot;&gt;Padlo: %1$s\nVedle! Počet správných tipů: %2$d z %3$d&lt;/string&gt;&#10;&lt;/resources&gt;" />
               <option name="updatedContent" value="&lt;resources&gt;&#10;    &lt;string name=&quot;app_name&quot;&gt;CvikoApp10HodMinci&lt;/string&gt;&#10;    &lt;string name=&quot;result_correct&quot;&gt;Padlo: %1$s\nSprávně! Počet správných tipů: %2$d z %3$d&lt;/string&gt;&#10;    &lt;string name=&quot;result_wrong&quot;&gt;Padlo: %1$s\nVedle! Počet správných tipů: %2$d z %3$d&lt;/string&gt;&#10;&lt;/resources&gt;" />
             </PendingDiffInfo>
           </value>
