@@ -40,7 +40,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ukázkový obsah..."
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvNoteCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kategorie"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:textStyle="italic"/>
     </LinearLayout>
 
     <!-- EDIT icon -->

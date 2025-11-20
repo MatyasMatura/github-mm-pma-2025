@@ -33,6 +33,7 @@ class NoteAdapter(
         holder.binding.tvNoteId.text = "ID: ${currentNote.id}"
         holder.binding.tvNoteTitle.text = currentNote.title
         holder.binding.tvNoteContent.text = currentNote.content
+        holder.binding.tvNoteCategory.text = currentNote.category
 
         // Add click listeners to edit and delete buttons
         holder.binding.ivEdit.setOnClickListener {
