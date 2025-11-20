@@ -1,6 +1,8 @@
 package com.example.cvikoapp11mynotehub
 
+import android.R
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -33,6 +35,18 @@ class EditNoteActivity : AppCompatActivity() {
         // Zobrazíme ID poznámky
         binding.tvNoteId.text = "ID: $noteId"
 
+        // ---------- Kategorie (Spinner) ----------
+        val categories = listOf("General", "Škola", "Práce", "Osobní")
+
+        val adapter = ArrayAdapter(
+            this,
+            R.layout.simple_spinner_item,
+            categories
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        binding.spinnerCategory.adapter = adapter
+
         // Načteme poznámku z DB
         lifecycleScope.launch {
             noteDao.getAllNotes().collect { notes ->
@@ -40,6 +54,12 @@ class EditNoteActivity : AppCompatActivity() {
                 if (note != null) {
                     binding.etEditTitle.setText(note.title)
                     binding.etEditContent.setText(note.content)
+
+                    // Nastavíme správně vybranou kategorii ve spinneru
+                    val categoryIndex = categories.indexOf(note.category)
+                    if (categoryIndex >= 0) {
+                        binding.spinnerCategory.setSelection(categoryIndex)
+                    }
                 }
             }
         }
@@ -48,11 +68,13 @@ class EditNoteActivity : AppCompatActivity() {
         binding.btnSaveChanges.setOnClickListener {
             val updatedTitle = binding.etEditTitle.text.toString()
             val updatedContent = binding.etEditContent.text.toString()
+            val updatedCategory = binding.spinnerCategory.selectedItem.toString()
 
             val updatedNote = Note(
                 id = noteId,
                 title = updatedTitle,
-                content = updatedContent
+                content = updatedContent,
+                category = updatedCategory
             )
 
             lifecycleScope.launch(Dispatchers.IO) {
