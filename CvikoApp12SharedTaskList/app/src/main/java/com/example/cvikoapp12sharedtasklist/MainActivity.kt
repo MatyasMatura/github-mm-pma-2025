@@ -55,31 +55,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toggleCompleted(task: Task) {
-
-        // Vyhledá v databázi všechny dokumenty, které mají stejné title jako kliknutý úkol
-        db.collection("tasks")
-            .whereEqualTo("title", task.title)
-            .get()
-            .addOnSuccessListener { docs ->
-
-                // Pro každý nalezený dokument změní hodnotu "completed" na opačnou
-                for (doc in docs) {
-                    db.collection("tasks")
-                        .document(doc.id)
-                        .update("completed", !task.completed)
-                }
-            }
+        // Update the task directly by its ID
+        if (task.id.isNotEmpty()) {
+            db.collection("tasks")
+                .document(task.id)
+                .update("completed", !task.completed)
+        }
     }
 
     private fun deleteTask(task: Task) {
-        db.collection("tasks")
-            .whereEqualTo("title", task.title)
-            .get()
-            .addOnSuccessListener { docs ->
-                for (doc in docs) {
-                    db.collection("tasks").document(doc.id).delete()
-                }
-            }
+        // Delete the task directly by its ID
+        if (task.id.isNotEmpty()) {
+            db.collection("tasks").document(task.id).delete()
+        }
     }
 
 
@@ -87,8 +75,10 @@ class MainActivity : AppCompatActivity() {
         db.collection("tasks")
             // Sleduje kolekci tasks v reálném čase
             .addSnapshotListener { snapshots, _ ->
-                // Převede dokumenty z Firestore na seznam objektů Task
-                val taskList = snapshots?.toObjects(Task::class.java) ?: emptyList()
+                // Převede dokumenty z Firestore na seznam objektů Task, včetně jejich ID
+                val taskList = snapshots?.documents?.map { doc ->
+                    doc.toObject(Task::class.java)?.copy(id = doc.id) ?: Task()
+                } ?: emptyList()
                 // Aktualizuje RecyclerView novým seznamem úkolů
                 adapter.submitList(taskList)
             }

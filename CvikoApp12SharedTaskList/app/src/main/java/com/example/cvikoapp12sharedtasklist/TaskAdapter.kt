@@ -32,13 +32,20 @@ class TaskAdapter(
         // Nastaví text úkolu
         holder.binding.textTitle.text = task.title
 
+        // Remove any existing listener first to prevent stacking
+        holder.binding.checkCompleted.setOnCheckedChangeListener(null)
+
         // Nastaví zaškrtnutí checkboxu podle hodnoty v objektu
         holder.binding.checkCompleted.isChecked = task.completed
 
         // Listener pro změnu stavu checkboxu
         // Když uživatel změní stav, zavolá se funkce onChecked(task)
-        holder.binding.checkCompleted.setOnCheckedChangeListener { _, _ ->
-            onChecked(task)
+        holder.binding.checkCompleted.setOnCheckedChangeListener { _, isChecked ->
+            // Only trigger if the checked state differs from the task's current state
+            // This prevents triggering when we set it programmatically above
+            if (isChecked != task.completed) {
+                onChecked(task)
+            }
         }
 
         // Listener pro smazání úkolu
