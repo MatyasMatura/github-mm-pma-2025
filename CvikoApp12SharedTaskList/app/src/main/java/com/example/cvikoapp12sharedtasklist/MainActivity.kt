@@ -1,7 +1,9 @@
 package com.example.cvikoapp12sharedtasklist
 
 import android.os.Bundle
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -29,7 +31,8 @@ class MainActivity : AppCompatActivity() {
         adapter = TaskAdapter(
             tasks = emptyList(),
             onChecked = { task -> toggleCompleted(task) },
-            onDelete = { task -> deleteTask(task) }
+            onDelete = { task -> deleteTask(task) },
+            onEdit = { task -> showEditDialog(task) }
         )
 
         binding.recyclerViewTasks.adapter = adapter
@@ -70,6 +73,36 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showEditDialog(task: Task) {
+        // Vytvoření EditText pro zadání nového názvu
+        val editText = EditText(this).apply {
+            setText(task.title)
+            hint = "Upravit název úkolu"
+            setPadding(50, 40, 50, 40)
+        }
+
+        // Vytvoření a zobrazení dialogu
+        AlertDialog.Builder(this)
+            .setTitle("Upravit úkol")
+            .setView(editText)
+            .setPositiveButton("Uložit") { _, _ ->
+                val newTitle = editText.text.toString()
+                if (newTitle.isNotEmpty()) {
+                    editTask(task, newTitle)
+                }
+            }
+            .setNegativeButton("Zrušit", null)
+            .show()
+    }
+
+    private fun editTask(task: Task, newTitle: String) {
+        // Aktualizace názvu úkolu v Firestore
+        if (task.id.isNotEmpty()) {
+            db.collection("tasks")
+                .document(task.id)
+                .update("title", newTitle)
+        }
+    }
 
     private fun listenForTasks() {
         db.collection("tasks")
