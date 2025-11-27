@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "235814273704",
+    "project_id": "cvikoapp12sharedtasklist",
+    "storage_bucket": "cvikoapp12sharedtasklist.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235814273704:android:99ad1e5b14ef27a3e5f89d",
+        "android_client_info": {
+          "package_name": "com.example.cvikoapp12sharedtasklist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkKUSLdE8ZniQDsQL9UTC4pJY5CzHtCQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
