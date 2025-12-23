@@ -5,56 +5,109 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.example.christmasappadventcalendar.R
+import com.example.christmasappadventcalendar.AdventCalendarRepository
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import java.util.Calendar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var repository: AdventCalendarRepository
+    private val dayViews = mutableListOf<TextView>()
+
+    private val christmasEmojis = listOf(
+        "🎅", "🤶", "🎄", "⛄", "🎁", "🔔", "⭐", "❄️",
+        "🕯️", "🦌", "🎿", "⛷️", "🏂", "🧦", "🍪", "🥛",
+        "🎵", "🎶", "🌟", "✨", "🎀", "🎊", "🎉", "🧸"
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        repository = AdventCalendarRepository(requireContext())
+
+        // Collect all day views
+        for (i in 1..24) {
+            val dayView = view.findViewById<TextView>(
+                resources.getIdentifier("day$i", "id", requireContext().packageName)
+            )
+            dayViews.add(dayView)
+            setupDayView(dayView, i)
+        }
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun setupDayView(dayView: TextView, day: Int) {
+        lifecycleScope.launch {
+            val isOpened = repository.isDayOpened(day).first()
+            val emoji = repository.getDayEmoji(day).first()
+            val calendar = Calendar.getInstance()
+            val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
+            val currentMonth = calendar.get(Calendar.MONTH) + 1 // Calendar.MONTH is 0-based
+
+            // Check if day is unlocked (it's December and today is >= day number)
+            val isUnlocked = currentMonth == 12 && currentDay >= day
+
+            when {
+                isOpened && emoji != null -> {
+                    // Day was already opened, show emoji
+                    dayView.text = emoji
+                    dayView.setBackgroundResource(R.drawable.calendar_day_opened)
+                    dayView.isEnabled = false
+                }
+                isUnlocked -> {
+                    // Day is unlocked and can be opened
+                    dayView.text = day.toString()
+                    dayView.setBackgroundResource(R.drawable.calendar_day_background)
+                    dayView.isEnabled = true
+                    dayView.setOnClickListener {
+                        openDay(dayView, day)
+                    }
+                }
+                else -> {
+                    // Day is locked
+                    dayView.text = "🔒"
+                    dayView.setBackgroundResource(R.drawable.calendar_day_locked)
+                    dayView.isEnabled = false
+                    dayView.setOnClickListener {
+                        Toast.makeText(
+                            requireContext(),
+                            "This door opens on December $day!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
+        }
+    }
+
+    private fun openDay(dayView: TextView, day: Int) {
+        lifecycleScope.launch {
+            // Get a random emoji
+            val randomEmoji = christmasEmojis.random()
+
+            // Save to repository
+            repository.markDayAsOpened(day, randomEmoji)
+
+            // Update UI
+            dayView.text = randomEmoji
+            dayView.setBackgroundResource(R.drawable.calendar_day_opened)
+            dayView.isEnabled = false
+
+            // Show a toast
+            Toast.makeText(
+                requireContext(),
+                "Day $day: $randomEmoji Happy Holidays!",
+                Toast.LENGTH_LONG
+            ).show()
+        }
     }
 }

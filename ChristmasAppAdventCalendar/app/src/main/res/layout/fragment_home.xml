@@ -1,14 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF9F9F9"
     tools:context=".ui.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="HOME FRAGMENT" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
 
-</FrameLayout>
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#C41E3A"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Star on top - Day 24 -->
+        <TextView
+            android:id="@+id/day24"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="24"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/calendar_day_background"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Row 2: 2 items (23, 22) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/day23"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="23"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day22"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="22"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background" />
+        </LinearLayout>
+
+        <!-- Row 3: 3 items (21, 20, 19) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/day21"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="21"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day20"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="20"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day19"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="19"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background" />
+        </LinearLayout>
+
+        <!-- Row 4: 4 items (18, 17, 16, 15) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/day18"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="18"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day17"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="17"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day16"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="16"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day15"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="15"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background" />
+        </LinearLayout>
+
+        <!-- Row 5: 5 items (14, 13, 12, 11, 10) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/day14"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="14"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day13"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="13"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day12"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="12"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day11"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="11"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day10"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="10"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background" />
+        </LinearLayout>
+
+        <!-- Row 6: 5 items (9, 8, 7, 6, 5) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/day9"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="9"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="8"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="7"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="6"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="5"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background" />
+        </LinearLayout>
+
+        <!-- Tree trunk: Last 4 days (4, 3, 2, 1) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/day4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="4"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="3"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="2"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/day1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="1"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/calendar_day_background" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

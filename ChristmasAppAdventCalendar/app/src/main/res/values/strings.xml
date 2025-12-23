@@ -3,4 +3,24 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+
+    <!-- About Fragment -->
+    <string name="about_title">🎄 Christmas Advent Calendar 🎄</string>
+    <string name="about_description">Welcome to your magical Christmas countdown! Open a new door each day of December leading up to Christmas Eve. Each day reveals a special surprise to brighten your holiday season.</string>
+    <string name="about_features_title">Features:</string>
+    <string name="about_feature_1">✨ 24 days of festive surprises</string>
+    <string name="about_feature_2">🎁 Daily gifts and content</string>
+    <string name="about_feature_3">🎅 Celebrate the Christmas spirit</string>
+    <string name="about_footer">Wishing you a Merry Christmas and a Happy New Year! 🎉</string>
+    <string name="about_countdown_title">Days Until Christmas Eve:</string>
+    <string name="about_countdown_christmas_eve">It\'s Christmas Eve! 🎅🎄</string>
+    <string name="about_countdown_after_christmas">Christmas has passed! See you next year! 🎁</string>
+
+    <!-- Day Fragment -->
+    <string name="day_title">🎄 Christmas Countdown 🎄</string>
+    <string name="day_countdown_default">0</string>
+    <string name="day_message">⭐ Each day brings us closer to the magic! ⭐</string>
+
+    <!-- Home Fragment -->
+    <string name="home_title">🎄 Advent Calendar 🎄</string>
 </resources>

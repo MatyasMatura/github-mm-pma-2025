@@ -9,12 +9,8 @@
         android:name="com.example.christmasappadventcalendar.ui.HomeFragment"/>
 
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.christmasappadventcalendar.ui.ProfileFragment"/>
-
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.christmasappadventcalendar.ui.SettingsFragment"/>
+        android:id="@+id/dayFragment"
+        android:name="com.example.christmasappadventcalendar.ui.DayFragment"/>
 
     <fragment
         android:id="@+id/aboutFragment"

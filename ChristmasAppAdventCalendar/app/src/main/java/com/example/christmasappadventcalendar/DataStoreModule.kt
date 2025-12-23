@@ -3,4 +3,4 @@ package com.example.christmasappadventcalendar
 import android.content.Context
 import androidx.datastore.preferences.preferencesDataStore
 
-val Context.settingsDataStore by preferencesDataStore("settings")
+val Context.adventCalendarDataStore by preferencesDataStore("advent_calendar")
